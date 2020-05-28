@@ -1,14 +1,33 @@
 // var axios = require("axios");
 
-var typeOfBreed = [];
 
 $("#submit").on("click", function() {
-    var input = $("#breed").val().trim();
-    typeOfBreed.push(input);
+    var typeOfBreed = $("#breed").val().trim();
     console.log(typeOfBreed);
+
+    var queryURL = 'https://dog.ceo/api/breed/' + typeOfBreed + '/images';
+    console.log(queryURL);
+
+    $.ajax({
+        url : queryURL,
+        method :'GET'
+    }).done(function(response) {
+            var random = Math.floor(Math.random() * response.message.length);
+            console.log(response.message);
+            var imageDiv = $("<div>");
+            var image = $("<img>");
+            var dogPhoto = response.message[random];
+            image.attr("src", dogPhoto);
+            image.attr("height", 100);
+            image.addClass("image-class");
+            imageDiv.append(image);
+            $("#photos").prepend(image, "<br>");
+            
+    })
 
     return false;
 });
+
 
 
 // axios.get('https://dog.ceo/api/breed/' + typeOfBreed + '/images')
