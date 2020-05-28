@@ -3,15 +3,16 @@
 
 $("#submit").on("click", function() {
     var typeOfBreed = $("#breed").val().trim();
-    console.log(typeOfBreed);
 
     var queryURL = 'https://dog.ceo/api/breed/' + typeOfBreed + '/images';
-    console.log(queryURL);
 
     $.ajax({
         url : queryURL,
         method :'GET'
     }).done(function(response) {
+        console.log(response);
+
+        if(response.status === "success") {
             var random = Math.floor(Math.random() * response.message.length);
             console.log(response.message);
             var imageDiv = $("<div>");
@@ -21,7 +22,10 @@ $("#submit").on("click", function() {
             image.attr("height", 100);
             image.addClass("image-class");
             imageDiv.append(image);
-            $("#photos").prepend(image, "<br>");
+            $("#photos").html(imageDiv, "<br>");
+        } else if(err) {
+            $("#photos").html(reponse.message);
+        }
             
     })
 
