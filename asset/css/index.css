@@ -1,0 +1,12 @@
+body {
+    background-image: url("../image/background_home.jpg");
+    height:100%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 80%;
+}
+
+.jumbotron {
+    opacity: 100%;
+}
