@@ -1,0 +1,9 @@
+.jumbotron {
+    height: 5px;
+    margin-top: -3%;
+}
+
+.text-center {
+    text-align: left !important;
+    margin-top: -40px;
+}
