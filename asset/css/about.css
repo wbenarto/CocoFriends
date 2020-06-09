@@ -1,9 +1,15 @@
 .jumbotron {
     height: 5px;
     margin-top: -3%;
+    padding-left: 15px !important;
 }
 
 .text-center {
     text-align: left !important;
     margin-top: -40px;
+
+}
+
+h1 {
+    font-size: 35px !important;
 }
